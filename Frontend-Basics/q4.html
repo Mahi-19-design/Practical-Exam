@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Visibility</title>
+</head>
+<body>
+    <div class="container">
+        <img class="image" src="./Screenshot 2025-10-31 000700.png" alt="Screenshot" >
+        <br>
+        <button class="button" >click</button>
+    </div>
+
+    <script>
+       
+        const btn = document.getElementById('btn');
+        const img = document.getElementById('img');
+
+        const stored = sessionStorage.getItem('visibility');
+        if (stored === 'hidden') {
+            img.style.display = 'none';
+        } else {
+            img.style.display = 'block';
+        }
+
+        btn.addEventListener('click', () => {
+            const isHidden = img.style.display === 'none';
+            if (isHidden) {
+                img.style.display = 'block';
+                sessionStorage.setItem('visibility', 'visible');
+            } else {
+                img.style.display = 'none';
+                sessionStorage.setItem('visibility', 'hidden');
+            }
+        });
+    </script>
+</body>
+</html>
